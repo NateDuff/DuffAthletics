@@ -1,0 +1,25 @@
+name: $(Build.DefinitionName)-$(date:yyyyMMdd)$(rev:.r)
+trigger:
+  branches:
+    include:
+    - 'master'
+  paths:
+    include:
+    - 'Web'
+pool:
+  vmImage: 'Ubuntu-16.04'
+resources:
+- repo: self
+  clean: true
+
+steps:
+- task: CopyFiles@2
+  displayName: 'Copy Release Scripts'
+  inputs:
+    SourceFolder: '$(System.DefaultWorkingDirectory)/Web'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish Artifacts'
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'

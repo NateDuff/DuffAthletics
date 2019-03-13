@@ -1,0 +1,23 @@
+﻿{
+  "$schema": "http://json.schemastore.org/proxies",
+  "proxies": {
+    "Root": {
+      "matchCondition": {
+        "methods": [
+          "GET"
+        ],
+        "route": "/"
+      },
+      "backendUri": "https://dufftestaccount.z19.web.core.windows.net"
+    },
+    "SubRoot": {
+      "matchCondition": {
+        "methods": [
+          "GET"
+        ],
+        "route": "/{*args}"
+      },
+      "backendUri": "https://dufftestaccount.z19.web.core.windows.net/{args}"
+    }
+  }
+}
