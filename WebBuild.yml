@@ -14,10 +14,22 @@ resources:
 
 steps:
 - task: CopyFiles@2
+  displayName: 'Copy ARM Templates'
+  inputs:
+    SourceFolder: '$(System.DefaultWorkingDirectory)/ARM Template'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)/ARM Template'
+
+- task: CopyFiles@2
+  displayName: 'Copy Scripts'
+  inputs:
+    SourceFolder: '$(System.DefaultWorkingDirectory)/Scripts'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)/Scripts'
+
+- task: CopyFiles@2
   displayName: 'Copy Release Scripts'
   inputs:
     SourceFolder: '$(System.DefaultWorkingDirectory)/Web'
-    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)/Web'
 
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifacts'
