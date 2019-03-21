@@ -8,7 +8,7 @@
         ],
         "route": "/"
       },
-      "backendUri": "https://dufftestaccount.z19.web.core.windows.net"
+      "backendUri": "https://duffathleticsdevstore.z19.web.core.windows.net"
     },
     "SubRoot": {
       "matchCondition": {
@@ -17,7 +17,7 @@
         ],
         "route": "/{*args}"
       },
-      "backendUri": "https://dufftestaccount.z19.web.core.windows.net/{args}"
+      "backendUri": "https://duffathleticsdevstore.z19.web.core.windows.net/{args}"
     }
   }
 }
