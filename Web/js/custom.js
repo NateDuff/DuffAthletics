@@ -642,8 +642,7 @@ jQuery(document).on('ready', function () {
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
-                console.log(this.responseText);
-                //appInsights.trackPageView({name: 'some page', account: this.responseText});
+                appInsights.trackPageView({name: 'Home page', rawAccountData: this.responseText, userAccount: JSON.parse(this.responseText)[0].user_id});
             }
         };
         xhttp.open("GET", "https://duffathletics.com/.auth/me", true);
